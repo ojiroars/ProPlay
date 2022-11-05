@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class Player : MonoBehaviour
-{
+public class Player : MonoBehaviour {
     [SerializeField] protected Rigidbody2D _rb;
     private SpriteRenderer _renderer;
     private float _movementSpeed = 5f;
@@ -30,23 +29,20 @@ public class Player : MonoBehaviour
 
     public Animator animator; //animator
 
-    public bool IsSpinning
-    {
+    public bool IsSpinning {
         get { return isSpinning; }
         private set { }
     }
-    private void OnEnable()
-    {
+    private void OnEnable() {
         spinInput = false;
         isSpinning = false;
     }
-    private void Awake()
-    {
+    private void Awake() {
         _rb = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
+        _renderer.flipX = true;
     }
-    void Update()
-    {
+    void Update() {
         animator.SetFloat("Speed", Mathf.Abs(inputHorizontal)); //walk animation
 
         Debug.Log(jumps);
@@ -54,59 +50,50 @@ public class Player : MonoBehaviour
         JoyStickInput();
         CheckJoyStickSpinning();
         //hier checken we nog voor een aantal andere variable een voornaamelijk als de spin check succesvol eruit is gekomen
-        if (isSpinning && !_isGrounded && Input.GetKey(KeyCode.Joystick1Button1)) 
-        {
-            if(jumps == 1 && !spinned)
-            SpinAnimation();
-            _rb.velocity = new Vector2(_rb.velocity.x, _jumingPower);
-            spinned = true;
+        if (isSpinning && !_isGrounded && Input.GetKey(KeyCode.Joystick1Button1)) {
+            if (jumps == 1 && !spinned) {
+                jumps++;
+                animator.SetBool("IsJumping", false);
+                if (jumps <= 2) {
+                    animator.SetBool("Spin", true);
+                    _rb.velocity = new Vector2(_rb.velocity.x, _jumingPower);
+                    spinned = true;
+                }
+            }
         }
     }
-    public void SpinAnimation()
-    {
-        animator.SetBool("IsJumping", false);
-        animator.SetBool("Spin", true);
-    }
-    public void Movement()
-    {
-        if (_isGrounded)
-        {
+
+    public void Movement() {
+        if (_isGrounded) {
             inputHorizontal = Input.GetAxis("Horizontal") * _movementSpeed;
             inputVertical = Input.GetAxis("Vertical") * _movementSpeed;
         }
 
-        if (inputHorizontal != 0)
-        {
+        if (inputHorizontal != 0) {
             _rb.velocity = new Vector2(inputHorizontal, _rb.velocity.y); //walk animatie
         }
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton1) && jumps == 0 && _isGrounded || Input.GetKeyDown(KeyCode.Space) && jumps == 0 && _isGrounded)
-        {
+        if (Input.GetKeyDown(KeyCode.JoystickButton1) && jumps == 0 && _isGrounded || Input.GetKeyDown(KeyCode.Space) && jumps == 0 && _isGrounded) {
             jumps = 1; //jump animatie
             _rb.velocity = new Vector2(_rb.velocity.x, _jumingPower);
             animator.SetBool("IsJumping", true); //animator jump
         }
 
-        if (inputHorizontal > 0)
-        {
+        if (inputHorizontal > 0) {
             _renderer.flipX = true;
         }
 
-        else if (inputHorizontal < 0)
-        {
+        else if (inputHorizontal < 0) {
             _renderer.flipX = false;
         }
     }
-    private Vector2 JoyStickInput()
-    {
+    private Vector2 JoyStickInput() {
         _joystickInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         return _joystickInput;
     }
-    private void CheckJoyStickSpinning()
-    {
+    private void CheckJoyStickSpinning() {
         //checken of de huidge controller input anders is dan de vorige input
-        if (_joystickInput != _lastJoyStickInput && !spinInput)
-        {
+        if (_joystickInput != _lastJoyStickInput && !spinInput) {
             spinInput = true;
             StartCoroutine(CheckSpinning());//coroutine starten en hier gaan we alls checken.
         }
@@ -116,8 +103,7 @@ public class Player : MonoBehaviour
         else
             isSpinning = false;
     }
-    IEnumerator CheckSpinning()
-    {
+    IEnumerator CheckSpinning() {
         _lastJoyStickInput = _joystickInput;
         yield return new WaitForSeconds(checkUpdate);
 
@@ -129,27 +115,23 @@ public class Player : MonoBehaviour
             //clampen omdat we nog het aantal correctspins gaan vergelijken met correctSpinsRequired.
             correctSpins = Mathf.Clamp(correctSpins, 0, correctSpinsRequired);
         }
-        else
-        {
+        else {
             correctSpins = 0;
         }
         spinInput = false;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Ground") {
             _isGrounded = true;
             _rb.velocity = Vector2.zero;
             jumps = 0;
             spinned = false;
             animator.SetBool("IsJumping", false);
+            animator.SetBool("Spin", false);
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Ground") {
             _isGrounded = false;
         }
     }
