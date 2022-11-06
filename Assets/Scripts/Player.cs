@@ -8,7 +8,8 @@ public class Player : MonoBehaviour {
     [SerializeField] protected Rigidbody2D _rb;
     private SpriteRenderer _renderer;
     private float _movementSpeed = 5f;
-    private float _jumingPower = 10f;
+    private float _jumpingPower = 15f;
+    private float _spinPower = 10f;
     private float inputHorizontal = 0f;
     private float inputVertical = 0f;
 
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour {
                 animator.SetBool("IsJumping", false);
                 if (jumps <= 2) {
                     animator.SetBool("Spin", true);
-                    _rb.velocity = new Vector2(_rb.velocity.x, _jumingPower);
+                    _rb.velocity = new Vector2(_rb.velocity.x, _spinPower);
                     spinned = true;
                 }
             }
@@ -75,7 +76,7 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton1) && jumps == 0 && _isGrounded || Input.GetKeyDown(KeyCode.Space) && jumps == 0 && _isGrounded) {
             jumps = 1; //jump animatie
-            _rb.velocity = new Vector2(_rb.velocity.x, _jumingPower);
+            _rb.velocity = new Vector2(_rb.velocity.x, _jumpingPower);
             animator.SetBool("IsJumping", true); //animator jump
         }
 
