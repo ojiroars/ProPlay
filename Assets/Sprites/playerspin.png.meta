@@ -156,10 +156,10 @@ TextureImporter:
       name: playerspin_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1321
-        width: 869
-        height: 653
+        x: 284
+        y: 1521
+        width: 193
+        height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,10 +177,10 @@ TextureImporter:
       name: playerspin_1
       rect:
         serializedVersion: 2
-        x: 874
-        y: 1321
-        width: 869
-        height: 653
+        x: 1158
+        y: 1521
+        width: 193
+        height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,10 +198,10 @@ TextureImporter:
       name: playerspin_2
       rect:
         serializedVersion: 2
-        x: 1748
-        y: 1321
-        width: 869
-        height: 653
+        x: 2012
+        y: 1527
+        width: 225
+        height: 257
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: playerspin_3
       rect:
         serializedVersion: 2
-        x: 2622
-        y: 1321
-        width: 869
-        height: 653
+        x: 2916
+        y: 1524
+        width: 197
+        height: 260
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +240,10 @@ TextureImporter:
       name: playerspin_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 663
-        width: 869
-        height: 653
+        x: 264
+        y: 870
+        width: 225
+        height: 254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,10 +261,10 @@ TextureImporter:
       name: playerspin_5
       rect:
         serializedVersion: 2
-        x: 874
-        y: 663
-        width: 869
-        height: 653
+        x: 1138
+        y: 867
+        width: 240
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +282,10 @@ TextureImporter:
       name: playerspin_6
       rect:
         serializedVersion: 2
-        x: 1748
-        y: 663
-        width: 869
-        height: 653
+        x: 2010
+        y: 862
+        width: 258
+        height: 268
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,10 +303,10 @@ TextureImporter:
       name: playerspin_7
       rect:
         serializedVersion: 2
-        x: 2622
-        y: 663
-        width: 869
-        height: 653
+        x: 2905
+        y: 867
+        width: 194
+        height: 257
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,10 +324,10 @@ TextureImporter:
       name: playerspin_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 869
-        height: 653
+        x: 262
+        y: 202
+        width: 258
+        height: 270
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -345,10 +345,10 @@ TextureImporter:
       name: playerspin_9
       rect:
         serializedVersion: 2
-        x: 874
-        y: 5
-        width: 869
-        height: 653
+        x: 1145
+        y: 204
+        width: 223
+        height: 258
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,10 +366,10 @@ TextureImporter:
       name: playerspin_10
       rect:
         serializedVersion: 2
-        x: 1748
-        y: 5
-        width: 869
-        height: 653
+        x: 2042
+        y: 208
+        width: 197
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -387,10 +387,10 @@ TextureImporter:
       name: playerspin_11
       rect:
         serializedVersion: 2
-        x: 2622
-        y: 5
-        width: 869
-        height: 653
+        x: 2925
+        y: 209
+        width: 157
+        height: 251
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
